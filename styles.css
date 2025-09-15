@@ -15,5 +15,17 @@ h1 {
 
 #scetchGridContainer {
     display: flex;
-    
+    flex-wrap: wrap;
+    width: 600px;
+    gap: 2px;
+    border: 1px solid black;
+
+}
+
+.cell {
+    display: flex;
+    background-color: aqua;
+    border: 1px solid tomato;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 calc(100% / 16 - 2px);
 }
