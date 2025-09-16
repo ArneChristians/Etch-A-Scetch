@@ -5,6 +5,12 @@
     background-color:antiquewhite
 }
 
+:root {
+    /*Will be overwritten later */
+    --grid-rows: 1;
+    --grid-columns: 1;
+}
+
 h1 {
     display: flex;
     align-self: center;
@@ -13,19 +19,32 @@ h1 {
     color: chocolate;
 }
 
-#scetchGridContainer {
+#container {
     display: flex;
-    flex-wrap: wrap;
-    width: 600px;
-    gap: 2px;
-    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
 
+#scetchGridContainer {
+    display: grid;
+    width: 600px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
 }
 
 .cell {
-    display: flex;
-    background-color: aqua;
     border: 1px solid tomato;
-    aspect-ratio: 1 / 1;
-    flex: 0 0 calc(100% / 16 - 2px);
+}
+
+#buttonBox {
+    display: flex;
+}
+
+button {
+    width: 60px;
+    height: 30px;
 }
