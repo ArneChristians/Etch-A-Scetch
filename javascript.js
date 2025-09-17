@@ -2,6 +2,10 @@ const container = document.getElementById("scetchGridContainer");
 const cellItem = document.getElementsByClassName("cell");
 const blackPen = document.getElementById("blackPen");
 const eraserTool = document.getElementById("eraser");
+const grid = document.getElementById("showGrid");
+const reset = document.getElementById("reset");
+
+let gridState = 'grid';
 
 function createScetchGrid(size) {
     container.innerHTML = "";
@@ -47,4 +51,29 @@ eraserTool.addEventListener("click", event => {
             e.target.style.backgroundColor = "white";
         }
     })
+})
+
+//Grid toggle function
+grid.addEventListener("click", event => {
+    if (gridState == 'grid') {
+        const cells = document.querySelectorAll(".cell");
+        gridState = 'noGrid';
+        cells.forEach(cell => {
+            cell.style.border = "none";
+        });
+    } else {
+        const cells = document.querySelectorAll(".cell");
+        gridState = 'grid';
+        cells.forEach(cell => {
+            cell.style.border = "1px solid tomato";
+        });
+    }
+
+})
+
+reset.addEventListener("click", event => {
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach(cell => {
+            cell.style.backgroundColor = "white";
+        });
 })
